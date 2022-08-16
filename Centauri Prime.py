@@ -10,9 +10,9 @@ def getRuler(x):
         return "Nobody"
     return "Bob"
 
-
-T =input()
-for i in range(int(T)):
-    kingdom = input()
-    print("Case #{}: {} is ruled by {}".format(i+1, kingdom, getRuler(kingdom)))
+if __name__ == '__main__':
+    T =input()
+    for i in range(int(T)):
+      kingdom = input()
+      print("Case #{}: {} is ruled by {}".format(i+1, kingdom, getRuler(kingdom)))
 
