@@ -15,4 +15,3 @@ if __name__ == '__main__':
     for i in range(int(T)):
       kingdom = input()
       print("Case #{}: {} is ruled by {}".format(i+1, kingdom, getRuler(kingdom)))
-
