@@ -1,5 +1,5 @@
-def isvowel(y):
-    if y in ('a','e','i','o','u','A','E','I','O','U'):
+def isvowel(a):
+    if a in ('a','e','i','o','u','A','E','I','O','U'):
         return True
 
 def getRuler(x):
