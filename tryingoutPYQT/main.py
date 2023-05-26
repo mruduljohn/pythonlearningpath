@@ -1,30 +1,21 @@
 import sys
-from PyQt5.QtGui import QGuiApplication
-from PyQt5.QtQml import QQmlApplicationEngine
-from PyQt5.QtCore import QObject, pyqtSlot
+from PyQt5.QtCore import QObject,QUrl
+from PyQt5.QtWidgets import QApplication
+from PyQt5.QtQuick import QQuickView
 
-# Create the application
-app = QGuiApplication(sys.argv)
+class Constants(QObject):
+    def __init__(self):
+        super().__init__()
+        self.width = 400
+        self.height = 300
+        self.backgroundColor = "#ffffff"
+        self.font = "Arial"
 
-# Create the QML engine
-engine = QQmlApplicationEngine()
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
 
-# Load the QML file
-engine.load('C:/Users/mrudu/Documents/GitHub/pythonlearningpath/tryingoutPYQT/Course_Success_.ui.qml')
+    view = QQuickView()
+    view.setSource(QUrl.fromLocalFile('Screen01.ui.qml'))
+    view.show()
 
-# Check if loading was successful
-if not engine.rootObjects():
-    sys.exit(-1)
-class BackendObject(QObject):
-    @pyqtSlot(str)
-    def greet(self, name):
-        print('Hello,', name)
-
-# Create an instance of the backend object
-backend = BackendObject()
-
-# Expose the backend object to QML
-engine.rootContext().setContextProperty('backend', backend)
-
-# Run the application
-sys.exit(app.exec())
+    sys.exit(app.exec())
